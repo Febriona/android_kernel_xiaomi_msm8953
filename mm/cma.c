@@ -60,27 +60,19 @@ static unsigned long cma_bitmap_aligned_mask(const struct cma *cma,
 	return (1UL << (align_order - cma->order_per_bit)) - 1;
 }
 
-/*
- * Find a PFN aligned to the specified order and return an offset represented in
- * order_per_bits.
- */
-static unsigned long cma_bitmap_aligned_offset(const struct cma *cma,
-					       int align_order)
+static unsigned long cma_bitmap_aligned_offset(struct cma *cma, int align_order)
 {
+	unsigned int alignment;
+
 	if (align_order <= cma->order_per_bit)
 		return 0;
-
-	return (ALIGN(cma->base_pfn, (1UL << align_order))
-		- cma->base_pfn) >> cma->order_per_bit;
+	alignment = 1UL << (align_order - cma->order_per_bit);
+	return ALIGN(cma->base_pfn, alignment) -
+		(cma->base_pfn >> cma->order_per_bit);
 }
 
-static unsigned long cma_bitmap_maxno(struct cma *cma)
-{
-	return cma->count >> cma->order_per_bit;
-}
-
-static unsigned long cma_bitmap_pages_to_bits(const struct cma *cma,
-					      unsigned long pages)
+static unsigned long cma_bitmap_pages_to_bits(struct cma *cma,
+						unsigned long pages)
 {
 	return ALIGN(pages, 1UL << cma->order_per_bit) >> cma->order_per_bit;
 }
