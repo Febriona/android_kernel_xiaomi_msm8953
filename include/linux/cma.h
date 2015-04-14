@@ -16,8 +16,8 @@
 struct cma;
 
 extern unsigned long totalcma_pages;
-extern phys_addr_t cma_get_base(struct cma *cma);
-extern unsigned long cma_get_size(struct cma *cma);
+extern phys_addr_t cma_get_base(const struct cma *cma);
+extern unsigned long cma_get_size(const struct cma *cma);
 
 extern int __init cma_declare_contiguous(phys_addr_t base,
 			phys_addr_t size, phys_addr_t limit,
@@ -26,6 +26,6 @@ extern int __init cma_declare_contiguous(phys_addr_t base,
 extern int cma_init_reserved_mem(phys_addr_t base, phys_addr_t size,
 					unsigned int order_per_bit,
 					struct cma **res_cma);
-extern struct page *cma_alloc(struct cma *cma, size_t count, unsigned int align);
+extern struct page *cma_alloc(struct cma *cma, unsigned int count, unsigned int align);
 extern bool cma_release(struct cma *cma, const struct page *pages, unsigned int count);
 #endif
