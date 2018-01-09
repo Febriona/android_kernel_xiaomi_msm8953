@@ -31,20 +31,22 @@ echo "" >> /system/etc/init.qcom.post_boot.sh
 echo "  # set cpu governor" >> /system/etc/init.qcom.post_boot.sh
 gov=`grep selected.0 /tmp/aroma/gov.prop | cut -d '=' -f2`
 if [ $gov = 1 ]; then
-echo "  echo \"blu_active\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"relaxed\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 2 ]; then
-echo "  echo \"conservative\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"blu_active\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 3 ]; then
-echo "  echo \"impulse\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"conservative\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 4 ]; then
-echo "  echo \"interactive\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"impulse\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 5 ]; then
-echo "  echo \"lionfish\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"interactive\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 6 ]; then
-echo "  echo \"ondemand\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"lionfish\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 7 ]; then
-echo "  echo \"performance\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+echo "  echo \"ondemand\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 elif [ $gov = 8 ]; then
+echo "  echo \"performance\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
+elif [ $gov = 9 ]; then
 echo "  echo \"powersave\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh
 else
 echo "  echo \"userspace\" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor" >> /system/etc/init.qcom.post_boot.sh

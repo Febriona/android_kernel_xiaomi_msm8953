@@ -103,6 +103,7 @@ selectbox(
 
 selectbox(
   "\nCPU Governor","<@center><b>\nSelect the governor you would like to use for your CPU</b>\n\n</@>","","gov.prop",
+  "relaxed","",0,
   "blu_active","",0,
   "conservative","",0,
   "impulse","",0,
