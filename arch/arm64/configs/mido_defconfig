@@ -2687,6 +2687,7 @@ CONFIG_VIDEO_IR_I2C=y
 #
 # Audio/Video compression chips
 #
+CONFIG_SOUND_CONTROL=y
 
 #
 # Miscellaneous helper chips
