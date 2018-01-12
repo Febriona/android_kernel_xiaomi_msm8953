@@ -21,7 +21,7 @@ ZIMAGE=Image.gz-dtb
 DATE=$(date +"%Y%m%d-%H%M");
 
 #ubah nama device masing-masing (ido)
-ZIP=Redsun$DATE.zip;
+ZIP=Redsun-N-$z.zip;
 
 # Create flashable zip
 if [ -f $KERNELPATH/$ZIMAGE ]; then
@@ -33,14 +33,13 @@ cd ../..;
 
 # The whole process is now complete. Now do some touches...
 # move ZIP to /root
-mv -f $EXT/$ZIP /root/mido/$ZIP;
+mv -f $EXT/$ZIP/$PWD/out/$ZIP;
 
 #Then doing cleanup
 echo "Doing post-cleanup...";
-rm -rf arch/arm64/boot/dtb;
+rm -rf arch/arm/boot/dtb;
 rm -rf $ANYKERNEL/Image.gz-dtb;
 rm -rf $ANYKERNEL/dtb;
-rm -rf drivers/platform/msm/ipa/ipa_common
 echo "Done.";
 
 BUILD_END=$(date +"%s")
