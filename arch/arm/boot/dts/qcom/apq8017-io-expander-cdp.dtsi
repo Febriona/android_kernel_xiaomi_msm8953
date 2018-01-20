@@ -66,6 +66,7 @@
 		qcom,vdd-max-voltage = <1800000>;
 		qcom,vdd-min-voltage = <1800000>;
 	};
+
 	/* usb2533 flex hub */
 	usb2533@2c {
 		status = "disabled";
