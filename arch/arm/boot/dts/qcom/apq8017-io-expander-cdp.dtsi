@@ -39,7 +39,7 @@
 		compatible = "sx1509q";
 		#gpio-cells = <2>;
 		gpio-controller;
-		reg = <0x3E>; /* I2C Client Addr */
+		reg = <0x3e>; /* I2C Client Addr */
 		sx150x,pullup_ena = <0x0>;
 		sx150x,pulldn_ena = <0x0>;
 		sx150x,float_ena = <0x00>;
@@ -92,4 +92,3 @@
 		spi-max-frequency = <40000000>;
 	};
 };
-
